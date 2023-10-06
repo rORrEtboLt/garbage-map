@@ -1,0 +1,25 @@
+{
+  "APPLICATION": {
+    "APPLICATION_PORT": 3000
+  },
+  "DATABASE": {
+    "URI": "mongodb://localhost:27017/dougCoffee"
+  },
+  "MAIL": {
+    "host": "smtp.mailtrap.io",
+    "port": 2525,
+    "secure": false,
+    "auth": {
+      "user": "0c2919f7acf8a0",
+      "pass": "848a6007a9f5a7"
+    }
+  },
+  "CLIENT": {
+    "URL": "http://localhost:3001"
+  },
+  "LANGUAGE": "en",
+  "LOG": {
+    "ERROR_FILE": "error.log",
+    "COMBINED_FILE": "combined.log"
+  }
+}

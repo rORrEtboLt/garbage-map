@@ -1,0 +1,12 @@
+{
+  "TOKEN_ERROR_VALUE": "Value to create token required",
+  "TOKEN_VALUE_EMPTY": "To create token value cannot be empty",
+  "SIGNUP_DETAILS_INVALID": "Invalid signup details format.",
+  "MAIL_NOT_SENT": "Mail could not be sent.",
+  "EMAIL_ALREADY_EXIST": "email address already exists.",
+  "SIGNUP_SUCCESS_MESSAGE": "Welcome to Doug Coffee. Please click on the Link sent to your email.",
+  "USER_DOESNOT_EXIST": "User does not exist.",
+  "PLEASE_CHECK_USERNAME_EMAIL": "Please check your e-mail / username.",
+  "PASSWORD_MISMATCH": "Passwords do not match.",
+  "INCORRECT_PASSWORD": "Please check your password."
+}

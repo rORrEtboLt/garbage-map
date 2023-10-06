@@ -1,0 +1,48 @@
+{
+  "name": "doug-coffee-backend",
+  "version": "0.1.0",
+  "description": "Server for doug coffee project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --use_strict index.js",
+    "dev": "DEBUG=http,mail,express:* nodemon --use_strict index.js",
+    "dev-windows": "set DEBUG=http,mail,express:* & nodemon --use_strict index.js",
+    "precommit": "lint-staged",
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://NesarHD@gitlab.com/NesarHD/doug-coffee-backend.git"
+  },
+  "lint-staged": {
+    "server/**/*.{js,json}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
+  },
+  "keywords": [
+    "coffee",
+    "Doug"
+  ],
+  "author": "NesaraHD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/NesarHD/doug-coffee-backend/issues"
+  },
+  "homepage": "https://gitlab.com/NesarHD/doug-coffee-backend#README",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.5",
+    "nodemailer": "^6.4.6",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1"
+  }
+}
