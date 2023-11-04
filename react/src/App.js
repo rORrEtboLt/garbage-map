@@ -5,7 +5,7 @@ import { transitions, positions, Provider as AlertProvider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 import Navigation from "./components/navigation";
 import AppBody from "./components/app_body";
-import "./app.css";
+import "./App.css";
 
 // optional configuration
 const options = {
