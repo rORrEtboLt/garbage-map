@@ -3,7 +3,7 @@
     "APPLICATION_PORT": 3000
   },
   "DATABASE": {
-    "URI": "mongodb://localhost:27017/dougCoffee"
+    "URI": "mongodb://localhost:27017/gbmp"
   },
   "MAIL": {
     "host": "smtp.mailtrap.io",
