@@ -1,14 +1,16 @@
 const jsonWebToken = require("jsonwebtoken");
 const { CLIENT_ERROR } = require("../constants/status_codes_http_constants");
 const { SALT } = require("../constants/authentication_constants");
-const { validateMongoId } = require("../utilities/validate_id");
-const {
-  errorMessageBuilder,
-} = require("../utilities/message_builders");
+const { userSessionModel } = require("../models/user/user_session");
+const { userModel } = require("../models/user/user");
+const { logger } = require("../utilities/logger");
+
+const { errorMessageBuilder } = require("../utilities/message_builders");
 
 const authenticationCheck = (req, res, next) => {
   if (!req.headers.authorization) {
     // TODO: Implement logger and log info
+    logger.error("Unauthorized user");
     return res
       .status(CLIENT_ERROR.UN_AUTHORIZED)
       .json(errorMessageBuilder("Unauthorized error."));
@@ -18,13 +20,13 @@ const authenticationCheck = (req, res, next) => {
   const token = req.headers.authorization.split(" ")[1];
 
   // decode the token using a secret key-phrase
-  return checkTokenSalt(token, req)
+  checkTokenSalt(token, req)
     .then((decoded) => {
-        // TODO: Use decoded to log email address
+      // TODO: Use decoded to log email address
       return next();
     })
     .catch((err) => {
-        // TODO: use err to log into errors
+      // TODO: use err to log into errors
       return res
         .status(CLIENT_ERROR.UN_AUTHORIZED)
         .json(errorMessageBuilder("Unauthorized error."));
@@ -41,23 +43,28 @@ const checkTokenSalt = (token, req) => {
       }
 
       // User Identifier
-      const Identifier = decoded.Identifier;
-
-      // If not a valid mongo id
-      if(!validateMongoId){
-        reject("Well Tried Better luck next time.");
-      }
+      const userEmail = decoded.user;
 
       // Added to recognize user.
       req.email = decoded.email;
 
       // check if a user exists
-      const authenticatedUser = await user.findById(Identifier);
+      const authenticatedUser = await userModel.findOne({ email: userEmail });
+      const isUserInSession = await userSessionModel.findOne({
+        sessionToken: token,
+      });
 
-      if (authenticatedUser) {
-        resolve();
+      if (authenticatedUser && isUserInSession) {
+        resolve(decoded);
+      } else if (!authenticatedUser) {
+        logger.error("UnAuthenticated user");
+        reject("User unauthorized");
+      } else if (!isUserInSession) {
+        logger.error("session Not found");
+        reject("Please refresh session or session not found");
       } else {
-        reject("Well Tried Better luck next time.");
+        logger.error("User Not found");
+        reject("Unauthorized Better luck next time.");
       }
     });
   });
