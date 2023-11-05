@@ -6,7 +6,7 @@ const createToken = value => {
   if (value)
     return crypto
       .createHmac(CREATE_TOKEN.SHA256, value)
-      .update(CREATE_TOKEN.DOUG_COFFEE)
+      .update(CREATE_TOKEN.GARBAGE_MAP)
       .digest(CREATE_TOKEN.HEX);
   else
     throw {

@@ -15,7 +15,7 @@ const MONGO_ERRORS = {
 
 const CREATE_TOKEN = {
   SHA256: "sha256",
-  DOUG_COFFEE: "DougCoffee",
+  GARBAGE_MAP: "GarbageMap",
   HEX: "hex",
 };
 

@@ -1,7 +1,7 @@
 const SIGNUP_EMAIL = {
     FROM: '"hello"<hello@inbox.mailtrap.io>',
-    SUBJECT: "Welcome to Doug Coffee",
-    HEAD: "Doug coffee - Sign up successful.",
+    SUBJECT: "Welcome to Garbage Map",
+    HEAD: "Garbage Map - Sign up successful.",
     
 
   };

@@ -4,7 +4,7 @@
   "SIGNUP_DETAILS_INVALID": "Invalid signup details format.",
   "MAIL_NOT_SENT": "Mail could not be sent.",
   "EMAIL_ALREADY_EXIST": "email address already exists.",
-  "SIGNUP_SUCCESS_MESSAGE": "Welcome to Doug Coffee. Please click on the Link sent to your email.",
+  "SIGNUP_SUCCESS_MESSAGE": "Welcome to Garbage Maps. Please click on the Link sent to your email.",
   "USER_DOESNOT_EXIST": "User does not exist.",
   "PLEASE_CHECK_USERNAME_EMAIL": "Please check your e-mail / username.",
   "PASSWORD_MISMATCH": "Passwords do not match.",

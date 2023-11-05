@@ -4,13 +4,25 @@ const {
   errorMessageBuilder,
 } = require("../utilities/message_builders");
 
-// /login handles login with username, password return json web token
+// API Routes example / api
 router.post("/api", (req, res) => {
   try {
     return res.send({ server: "Hello API" });
   } catch (err) {
     console.log(err)
     // TODO: Log errors into log error handlers once created
+    return res
+      .status(SERVER_ERROR.INTERNAL_SERVER_ERROR)
+      .json(errorMessageBuilder());
+  }
+});
+
+// API Routes garbage-map /api/garbage-map/lat/lon
+router.post("/api/garbage-map/lat/lon", (req, res) => {
+  try {
+    return res.send({ server: "Hello garbage map Api" });
+  } catch (err) {
+    console.log(err)
     return res
       .status(SERVER_ERROR.INTERNAL_SERVER_ERROR)
       .json(errorMessageBuilder());
