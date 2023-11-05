@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const {userSchema} = require("./user")
 
 // User model schema
 const definition = {

@@ -1,7 +1,7 @@
 const LOGGER = {
     INFO: "info",
     ERROR: "error",
-    DEFAULT_SERVICE: "DOUG COFFEE",
+    DEFAULT_SERVICE: "GARBAGE_MAP",
     PRODUCTION: "production"
   };
   

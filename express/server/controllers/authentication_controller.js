@@ -15,7 +15,7 @@ const { AUTHENTICATION } = require("../constants/authentication_constants");
 const jwt = require("jsonwebtoken");
 
 /**
- * Sign-up to doug coffee with email, username, password and password again
+ * Sign-up to Garbage Map with email, username, password and password again
  *
  * @param {string} req.body.email
  * @param {string} req.body.username
@@ -123,7 +123,7 @@ const signUp = (req, res) => {
 };
 
 /**
- * Login to doug coffee with email or username, password
+ * Login to Garbage Map with email or username, password
  *
  * @param {string} req.body.email
  * @param {string} req.body.password
