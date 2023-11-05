@@ -1,32 +1,12 @@
-const express = require("express")
+const express = require("express");
 const router = new express.Router();
 const {
-  errorMessageBuilder,
-} = require("../utilities/message_builders");
+  listGabageMapForLatLon
+} = require("../controllers/garbage_map_controller");
 
-// API Routes example / api
-router.post("/api", (req, res) => {
-  try {
-    return res.send({ server: "Hello API" });
-  } catch (err) {
-    console.log(err)
-    // TODO: Log errors into log error handlers once created
-    return res
-      .status(SERVER_ERROR.INTERNAL_SERVER_ERROR)
-      .json(errorMessageBuilder());
-  }
-});
-
-// API Routes garbage-map /api/garbage-map/lat/lon
-router.post("/api/garbage-map/lat/lon", (req, res) => {
-  try {
-    return res.send({ server: "Hello garbage map Api" });
-  } catch (err) {
-    console.log(err)
-    return res
-      .status(SERVER_ERROR.INTERNAL_SERVER_ERROR)
-      .json(errorMessageBuilder());
-  }
+// /garbage-map/:lat/:log Adding account personal data into the system
+router.post("/garbage-map/:lat/:log", (req, res) => {
+  listGabageMapForLatLon(req, res);
 });
 
 module.exports = router;

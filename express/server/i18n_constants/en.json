@@ -8,5 +8,6 @@
   "USER_DOESNOT_EXIST": "User does not exist.",
   "PLEASE_CHECK_USERNAME_EMAIL": "Please check your e-mail / username.",
   "PASSWORD_MISMATCH": "Passwords do not match.",
-  "INCORRECT_PASSWORD": "Please check your password."
+  "INCORRECT_PASSWORD": "Please check your password.",
+  "GARBAGE_MAP_FETCH_SUCCESS": "Garbage Map Fetch Success."
 }

@@ -11,7 +11,7 @@ const {
 const { createToken } = require("../utilities/create_token");
 const { isMongoDuplicate } = require("../utilities/mongo_errors");
 const { I18N } = require("../i18n_constants");
-const { AUTHENTICATION } = require("../constants/authentication_constants");
+const { AUTHENTICATION, SALT } = require("../constants/authentication_constants");
 const jwt = require("jsonwebtoken");
 
 /**
@@ -158,8 +158,7 @@ const login = (req, res) => {
           if (isValidPassword) {
             // Generate jwt token and save to the document and return
             const token = jwt.sign(
-              { user: req.body.email, iat: Date.now() },
-              AUTHENTICATION.SECRET,
+              { user: req.body.email, username: user.username, iat: Date.now() }, SALT._,
               { expiresIn: AUTHENTICATION.EXPIRES_IN }
             );
 

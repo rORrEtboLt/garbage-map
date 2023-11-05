@@ -34,7 +34,7 @@ app.use(APP_ROUTES.API, authenticationCheck);
 // Routing for api related functions
 app.use(APP_ROUTES.API, apiRoutes);
 
-app.get("/", (req, res) => res.send("Hello World!"));
+app.get("/", (req, res) => res.send("garbage.map.v1.0.0"));
 
 app.listen(config.APPLICATION.APPLICATION_PORT, () =>
   logger.info(`${APP.LISTEN_STRING} ${config.APPLICATION.APPLICATION_PORT}`)
