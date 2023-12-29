@@ -23,6 +23,11 @@ const authenticationCheck = (req, res, next) => {
   checkTokenSalt(token, req)
     .then((decoded) => {
       // TODO: Use decoded to log email address
+      // added user to req object
+      req.user = {
+        user: decoded.user,
+        userId: decoded.userId
+      };
       return next();
     })
     .catch((err) => {
@@ -53,6 +58,8 @@ const checkTokenSalt = (token, req) => {
       const isUserInSession = await userSessionModel.findOne({
         sessionToken: token,
       });
+
+      decoded.userId = authenticatedUser._id;
 
       if (authenticatedUser && isUserInSession) {
         resolve(decoded);

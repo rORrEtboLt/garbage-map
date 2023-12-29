@@ -9,5 +9,6 @@
   "PLEASE_CHECK_USERNAME_EMAIL": "Please check your e-mail / username.",
   "PASSWORD_MISMATCH": "Passwords do not match.",
   "INCORRECT_PASSWORD": "Please check your password.",
-  "GARBAGE_MAP_FETCH_SUCCESS": "Garbage Map Fetch Success."
+  "GARBAGE_MAP_FETCH_SUCCESS": "Garbage Map Fetch Success.",
+  "GARBAGE_MAP_ADD_SUCCESS": "Garbage Map Data Add Success."
 }
