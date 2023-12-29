@@ -4,9 +4,8 @@ import { isLoggedIn, getToken } from '../login/login_functions'
 class BackendCommunicator {
   // Initializing important variables
   constructor(domain) {
-    this.domain = domain || process.env.REACT_APP_SERVER_URL;
+    this.domain = domain || process.env.REACT_APP_SERVER_URL || 'http://localhost:3000/api' ;
   }
-
 
   // common fetch function accross the app.
   fetch = (url, options) => {
