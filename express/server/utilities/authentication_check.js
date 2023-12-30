@@ -24,10 +24,13 @@ const authenticationCheck = (req, res, next) => {
     .then((decoded) => {
       // TODO: Use decoded to log email address
       // added user to req object
-      req.user = {
-        user: decoded.user,
-        userId: decoded.userId
-      };
+      if(decoded){
+        req.user = {
+          user: decoded.user,
+          userId: decoded.userId
+        };
+      }
+      
       return next();
     })
     .catch((err) => {
