@@ -17,7 +17,16 @@ const { logger } = require("../utilities/logger");
 const listGabageMapForLatLon = async (req, res) => {
     try {
         // Get all Garbage map for this particular Latitude Longitude.
-        const garbageMap = await garbageMapModel.find();
+        const garbageMap = await garbageMapModel.find({
+            location: {
+              $near: {
+                $geometry: {
+                   type: "Point",
+                   coordinates: [ req.params.lat ,  req.params.lon]
+                },
+              }
+            }
+         });
         // Return creation of garbage map succesfull
         return res
             .status(SUCCESS.REQUEST_COMPLETE)

@@ -6,7 +6,7 @@ const {
 } = require("../controllers/garbage_map_controller");
 
 // /garbage-map/:lat/:log Adding garbage map data into the system
-router.get("/garbage-map/:lat/:log", (req, res) => {
+router.get("/garbage-map/:lat/:lon", (req, res) => {
   listGabageMapForLatLon(req, res);
 });
 

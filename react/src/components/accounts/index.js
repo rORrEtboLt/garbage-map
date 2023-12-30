@@ -2,19 +2,38 @@ import React, { useState, useEffect }  from 'react'
 import LeafletPopup from '../react_leaflet/index'
 import { useAlert } from 'react-alert'
 import { GarbageMapCommunicator } from '../backend_communicator/garbage_map_communicator'
+import { useGeolocated } from "react-geolocated";
 
 const garbageMapCommunicator = new GarbageMapCommunicator();
 
 
 const Accounts = () => {
+    // Geo location
+    const { coords, isGeolocationAvailable, isGeolocationEnabled } =
+        useGeolocated({
+            positionOptions: {
+                enableHighAccuracy: false,
+            },
+            userDecisionTimeout: 5000,
+        });
+
+    console.log(coords)
     // initialize alert 
     const alert = useAlert();
+
     // Call garbage map get api
     const [data, setData] = useState(null);
 
     useEffect(() => {
-        garbageMapCommunicator
-            .get(13.3313, 75.7691) // TODO: Hardcoded to be changed to current lat lon
+        if(!isGeolocationAvailable){
+            alert.show("Your browser doesnot support geo location");
+        }
+        else if(!isGeolocationEnabled){
+            alert.show("Geolocation not enabled")
+        }else if(coords){
+            console.log(coords)
+            garbageMapCommunicator
+            .get(coords.latitude, coords.longitude) // TODO: Hardcoded to be changed to current lat lon
             .then((result) => {
                 if (result.success) {
                     //log data from garbagemap fetch
@@ -29,7 +48,8 @@ const Accounts = () => {
             .catch((error) => {
                 alert.show("Error Fetching data.");
             });
-    }, []);
+        }
+    }, [coords]);
 
     return (<LeafletPopup />)
 }
