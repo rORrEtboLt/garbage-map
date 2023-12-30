@@ -17,7 +17,6 @@ const Accounts = () => {
             userDecisionTimeout: 5000,
         });
 
-    console.log(coords)
     // initialize alert 
     const alert = useAlert();
 
@@ -31,13 +30,11 @@ const Accounts = () => {
         else if(!isGeolocationEnabled){
             alert.show("Geolocation not enabled")
         }else if(coords){
-            console.log(coords)
             garbageMapCommunicator
             .get(coords.latitude, coords.longitude) // TODO: Hardcoded to be changed to current lat lon
             .then((result) => {
                 if (result.success) {
                     //log data from garbagemap fetch
-                    console.log(result)
                     setData(result)
                     alert.show(result.message);
                 }
